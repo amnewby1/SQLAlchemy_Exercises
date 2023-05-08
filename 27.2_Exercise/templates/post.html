@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} User Post{% endblock %}
+{% block content %}
+
+<h1>{{post.title}}</h1>
+
+<p>{{post.content}}</p>
+<p>Author: {{post.user.first_name}} {{post.user.last_name}}</p>
+<p>Created: {{post.created}}</p>
+
+<a href="/posts/{{post.id}}/edit">Edit</a>
+<a href="/users/{{post.user.id}}">Delete</a>
+<a href="/users/{{post.user.id}}">Go Back</a>
+
+
+{% endblock %}

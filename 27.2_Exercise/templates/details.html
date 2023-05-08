@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} User Detail{% endblock %}
+{% block content %}
+<h1>{{user.first_name}} {{user.last_name}}</h1>
+
+<img src="{{user.image_url}}" alt="picture of user" class="image_url">
+
+<a href="/users/{{user.id}}/edit">Edit</a>
+<a href="/users">Delete</a>
+<a href="/users">Go Back</a>
+
+<h2>Posts</h2>
+<ul>
+    {% for post in user.post %}
+    <li>
+        <a href="/posts/{{post.id}}">{{post.title}}</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="/users/{{user.id}}/posts/new">Add New Post</a>
+{% endblock %}
