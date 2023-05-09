@@ -1,5 +1,4 @@
 """Blogly application."""
-
 from flask import Flask, request, render_template, redirect
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, User, Post
@@ -125,8 +124,9 @@ def handle_editpost_form(post_id):
 def delete_post(post_id):
     """Delete Post"""
     post = Post.query.get_or_404(post_id)
+    user_id = post.user.id
 
     db.session.delete(post)
     db.session.commit()
 
-    return redirect(f'/{post.user.id}')
+    return redirect(f'/users/{user_id}')

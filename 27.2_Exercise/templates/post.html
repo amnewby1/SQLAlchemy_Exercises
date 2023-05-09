@@ -7,10 +7,16 @@
 <p>{{post.content}}</p>
 <p>Author: {{post.user.first_name}} {{post.user.last_name}}</p>
 <p>Created: {{post.created}}</p>
+<form>
+    <button formaction="/posts/{{post.id}}/edit" formmethod="GET">
+        Edit
+    </button>
+    <button formaction="/posts/{{post.id}}/delete" formmethod="POST">
+        Delete
+    </button>
+    <button formaction="/user/{{user_id}}" formmethod="GET">Cancel</button>
+</form>
 
-<a href="/posts/{{post.id}}/edit">Edit</a>
-<a href="/users/{{post.user.id}}">Delete</a>
-<a href="/users/{{post.user.id}}">Go Back</a>
 
 
 {% endblock %}

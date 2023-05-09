@@ -2,14 +2,21 @@
 {% block title %} User Detail{% endblock %}
 {% block content %}
 <h1>{{user.first_name}} {{user.last_name}}</h1>
+<div class="img_container">
+    <img src="{{user.image_url}}" alt="picture of user" class="image_url">
+</div>
 
-<img src="{{user.image_url}}" alt="picture of user" class="image_url">
+<div class="user_buttons_container">
+    <form>
+        <button formaction="/users/{{user.id}}/edit" formmethod="GET" class="btn btn-primary">Edit</button>
 
-<a href="/users/{{user.id}}/edit">Edit</a>
-<a href="/users">Delete</a>
-<a href="/users">Go Back</a>
+        <button formaction="/users/{{user.id}}/delete" formmethod="POST" class="btn btn-danger">Delete</button>
+        <button formaction="/users" formmethod="GET" class="btn btn-dark">Go Back</button>
+    </form>
+</div>
 
 <h2>Posts</h2>
+
 <ul>
     {% for post in user.post %}
     <li>
@@ -17,5 +24,5 @@
     </li>
     {% endfor %}
 </ul>
-<a href="/users/{{user.id}}/posts/new">Add New Post</a>
+<a href="/users/{{user.id}}/posts/new"><button class="btn btn-info">Add New Post</button></a>
 {% endblock %}
