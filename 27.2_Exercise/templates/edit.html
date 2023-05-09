@@ -6,8 +6,8 @@
     <input type="text" name="first_name" placeholder="First Name">
     <input type="text" name="last_name" placeholder="Last Name">
     <input type="url" name="image_url" placeholder="Image URL">
-    <button>Submit Edited Info</button>
+    <button class="btn btn-success">Submit Edited Info</button>
+    <button formaction="/users/{{user.id}}" formmethod="GET" class="btn btn-dark">Cancel Edit</button>
 </form>
-<a href="/users/{{user.id}}">Cancel Editing</a>
 
 {% endblock %}

@@ -8,13 +8,13 @@
 <p>Author: {{post.user.first_name}} {{post.user.last_name}}</p>
 <p>Created: {{post.created}}</p>
 <form>
-    <button formaction="/posts/{{post.id}}/edit" formmethod="GET">
+    <button formaction="/posts/{{post.id}}/edit" formmethod="GET" class="btn btn-primary">
         Edit
     </button>
-    <button formaction="/posts/{{post.id}}/delete" formmethod="POST">
+    <button formaction="/posts/{{post.id}}/delete" formmethod="POST" class="btn btn-danger">
         Delete
     </button>
-    <button formaction="/user/{{user_id}}" formmethod="GET">Cancel</button>
+    <button formaction="/users/{{post.user.id}}" formmethod=" GET" class="btn btn-dark">Cancel</button>
 </form>
 
 
