@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} List of Tags{% endblock %}
+{% block content %}
+<h1>Tags</h1>
+
+<ul>
+    {% if tags %}
+    {% for tag in tags %}
+    <div class="list-group">
+        <a href="/tags/{{tag.id}}" class="list-group-item list-group-item-action">{{tag.name}}</a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No current tags available</p>
+    <p>Please use button below to create a new tag.</p>
+    {% endif %}
+</ul>
+<div class="list-group-item">
+    <a href="/users"><button class="btn btn-dark">Go Back</button></a>
+    <a href="/tags/new"><button class="btn btn-info">Add Tag</button></a>
+</div>
+{% endblock %}

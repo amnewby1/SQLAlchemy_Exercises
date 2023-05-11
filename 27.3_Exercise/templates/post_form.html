@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %} Edit User {% endblock %}
+{% block content %}
+<h1>Add Post</h1>
+<form action="/users/{{user.id}}/posts/new" method="POST" class="row gy-2 gx-3 align-items-center">
+    <div class="list-group-item">
+        <input type="text" name="title" placeholder="Title">
+        <input type="text" name="content" placeholder="Type content here...">
+    </div>
+    <h3>Please Select A Tag</h3>
+    {% for tag in tags %}
+    <ul class="list-group-item">
+
+        <input type="checkbox" name="tags" value="{{tag.id}}" id="{{tag.id}}">
+        <label for="{{tag.id}}">{{tag.name}}</label>
+
+    </ul>
+    {% endfor %}
+    <div>
+        <button class="btn btn-success">Submit Post</button>
+        <button formaction="/users/{{user.id}}" formmethod="GET" class="btn btn-dark">Cancel Post</button>
+    </div>
+</form>
+
+{% endblock %}

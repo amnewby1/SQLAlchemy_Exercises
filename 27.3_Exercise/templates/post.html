@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} User Post{% endblock %}
+{% block content %}
+
+<h1>{{post.title}}</h1>
+
+<p>{{post.content}}</p>
+<p>Author: {{post.user.first_name}} {{post.user.last_name}}</p>
+<p>Created: {{post.created}}</p>
+<form>
+    <button formaction="/posts/{{post.id}}/edit" formmethod="GET" class="btn btn-primary">
+        Edit
+    </button>
+    <button formaction="/posts/{{post.id}}/delete" formmethod="POST" class="btn btn-danger">
+        Delete
+    </button>
+    <button formaction="/users/{{post.user.id}}" formmethod=" GET" class="btn btn-dark">Cancel</button>
+</form>
+{% if post.tags %}
+{% for tag in post.tags %}
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item list-group-item-secondary"> <a href="/tags/{{tag.id}}">#{{tag.name}}</a>
+    </li>
+</ul>
+{% endfor %}
+{% else %}
+<div>
+    <h2>No tags associated with post</h2>
+</div>
+
+{% endif %}
+{% endblock %}

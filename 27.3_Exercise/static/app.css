@@ -1,0 +1,42 @@
+.image_url {
+  height: 100px;
+  width: 100px;
+}
+
+.img_container {
+  display: inline-block;
+  border: 1px solid black;
+  margin: 1rem;
+  text-align: left;
+}
+
+form input[type="text"] {
+  text-align: center;
+  width: 400px;
+  margin: 1rem;
+}
+
+form input[type="url"] {
+  text-align: center;
+  width: 400px;
+  margin: 1rem;
+}
+
+ul div {
+  text-align: center;
+}
+div h2 {
+  padding-top: 3rem;
+}
+
+.list-group-item {
+  margin: 1rem;
+}
+
+h1 {
+  margin: 1rem;
+}
+
+.list-group {
+  width: 50%;
+}
